@@ -18,3 +18,4 @@ Prerequisites along with their versions used in this project.
 - Download the repository from Github. Alternatively, if you have git installed on your system, you can run the command ```git clone  https://github.com/TejasJD/bitcoin_project_nodejs```.
 - Type ```npm install``` or ```yarn``` to install dependencies to run the code.
 - Type ```npm run start``` or ```yarn start``` to run the code.
+- If there is a connection error while connecting to the peer node, change the IP address (host field in the object) in the line ```const peer = new Peer({ host: "65.175.243.159" });``` in [index.js](index.js). IP address of the nodes can be found by doing a DNS lookup on the bitcoin lookup domain **seed.bitcoin.sipa.be**. Type ```dig seed.bitcoin.sipa.be``` in terminal (Linux / WSL) to do DNS lookup. Alternatively you can use this [link](https://mxtoolbox.com/DNSLookup.aspx) and type in the special lookup domain to a retrieve list of reliable addresses.
