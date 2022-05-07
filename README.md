@@ -16,5 +16,5 @@ Prerequisites along with their versions used in this project.
 ## Running the code
 - Type the commands below in command prompt or terminal.
 - Download the repository from Github. Alternatively, if you have git installed on your system, you can run the command ```git clone  https://github.com/TejasJD/bitcoin_project_nodejs```.
-- type ```npm install``` or ```yarn``` to install dependencies to run the code.
-- type ```npm run start``` or ```yarn start``` to run the code.
+- Type ```npm install``` or ```yarn``` to install dependencies to run the code.
+- Type ```npm run start``` or ```yarn start``` to run the code.
