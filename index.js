@@ -1,12 +1,20 @@
-const p2p = require("bitcore-p2p");
+/**
+ * We use Peer and Messages class for writing the code to
+ * interact with a Peer/Node in the bitcoin P2P network
+ */
+const { Peer, Messages } = require("bitcore-p2p");
 
-const Peer = p2p.Peer;
-const Messages = p2p.Messages;
+/**
+ * The node that we would be connecting to.
+ * We create a Peer object and pass in the IP address of the node we would be connecting to.
+ * Peer class uses default port 8333 to connect to the node.
+ */
+const peer = new Peer({ host: "65.175.243.159" });
 
-// connecting to a node on the bitcoin network, it uses default port for bitcoin connection 8333
-const peer = new Peer({host: "65.175.243.159"});
-
-// initialize the object of class Messages
+/**
+ * Initialize object of Messages class.
+ * used to create messages to interact with the node.
+ */
 let msg = new Messages();
 
 /**
@@ -17,17 +25,13 @@ peer.on('ready', () => {
 });
 
 /**
- * adding an event to the peer for Inventory messages 'inv'
- * we parse the inventory messages and based on the type of Inventory vectors
- * we send message to the connected node to get data on:
- *     transactions (type 1 inventory vector)
- *     blocks (type 2 inventory vector)
+ * Event that listens to the Inventory Messages.
  */
 peer.on('inv', (message) => {
   const inventory = message.inventory;
   // we parse the array of inventory vector that we receive in Inventory Message.
   inventory.forEach(vector => {
-    if(vector.type == 1) {
+    if (vector.type == 1) {
       // we send get_data_transaction message to the node, on receiving inventory vector of type 1
       let getDataTransaction = msg.GetData.forTransaction(vector.hash);
       peer.sendMessage(getDataTransaction);
@@ -40,7 +44,7 @@ peer.on('inv', (message) => {
 });
 
 /**
- * Event that listen to Transaction Message, the callback parses the transaction message
+ * Event that listen to Transaction Messagse.
  */
 peer.on('tx', (message) => {
   let tx = message.transaction.toObject();
@@ -51,16 +55,23 @@ peer.on('tx', (message) => {
   console.log(tx.hash);
   console.log(`This transaction is of ${1e-8 * totalBTC} BTC`);
 });
+
 /**
- * Event that listens to Block Message, the callback parses the block message
+ * Event that listens to Block Messages.
  */
 peer.on('block', (message) => {
   let block = message.block.toObject();
   console.log(block);
 });
 
+/**
+ * Event emitted upon disconnecting from the peer.
+ */
 peer.on('disconnect', () => {
   console.log('connection closed');
 });
 
+/**
+ * initiates a connection the peer asynchornously
+ */
 peer.connect();
