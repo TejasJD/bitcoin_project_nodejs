@@ -16,7 +16,7 @@ const getTransactionData = (tx) => {
   tx.outputs.forEach(output => {
     totalOutputBTC += output.satoshis;
   });
-  console.log(`**** TRANSACTION ***`);
+  console.log(`*** TRANSACTION ***`);
   console.log(`transaction hash: ${tx.hash}`);
   console.log(`transaction inputs: ${tx.inputs.length}`);
   console.log(`transaction outputs: ${tx.outputs.length}`);
@@ -30,6 +30,7 @@ const getTransactionData = (tx) => {
  * @param {Object} inventory - inventory array to parse.
  */
 const parseInventoryVectors = (peer, inventory) => {
+  console.log(`size of received inventory array: ${inventory.length}`);
   // we parse the array of inventory vectors that we receive in Inventory Message.
   inventory.forEach(vector => {
     if (vector.type == 1) {

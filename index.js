@@ -41,6 +41,7 @@ peer.on('ready', () => {
  * Event that listens to the Inventory Messages.
  */
 peer.on('inv', (message) => {
+  console.log("*** INVENTORY PAYLOAD RECEIVED ***");
   // The inventory array from Inventory Message, this is an array of inventory vectors.
   const inventory = message.inventory;
   // function to parse the inventory array and send message to the node to retrieve data
