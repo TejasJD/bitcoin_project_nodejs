@@ -103,7 +103,7 @@ buffer-compare@=1.1.1:
   resolved "https://registry.yarnpkg.com/buffer-compare/-/buffer-compare-1.1.1.tgz#5be7be853af89198d1f4ddc090d1d66a48aef596"
   integrity sha1-W+e+hTr4kZjR9N3AkNHWakiu9ZY=
 
-"buffers@github:bitpay/node-buffers#v0.1.2-bitpay":
+buffers@bitpay/node-buffers#v0.1.2-bitpay:
   version "0.1.1"
   resolved "https://codeload.github.com/bitpay/node-buffers/tar.gz/04f4c4264e0d105db2b99b786843ed64f23230d8"
 

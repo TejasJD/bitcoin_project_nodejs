@@ -25,7 +25,7 @@ const peer = new Peer({ host: "35.204.253.254" });
 let msg = new Messages();
 
 /**
- * This event is invoked emitted when peer is ready to send and receive data.
+ * This event is emitted when peer is ready to send and receive data.
  */
 peer.on('ready', () => {
   console.log(`peer version: ${peer.version}`);
@@ -50,7 +50,7 @@ peer.on('inv', (message) => {
 });
 
 /**
- * Event that listen to Transaction Messages. This type of message is received
+ * Event that listens to Transaction Messages. This type of message is received
  * in reponse to the "getdata" message that requests data from a transaction hash.
  */
 peer.on('tx', (message) => {
@@ -78,6 +78,6 @@ peer.on('disconnect', () => {
 });
 
 /**
- * initiates a connection the peer asynchornously
+ * initiates a connection to the peer asynchornously
  */
 peer.connect();
