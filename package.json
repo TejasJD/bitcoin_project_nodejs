@@ -4,9 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "bitcore-lib": "^8.25.28",
-    "bitcore-p2p": "^8.25.28",
-    "express": "^4.18.1"
+    "bitcore-p2p": "^8.25.28"
   },
   "scripts": {
     "start": "node ./index.js"
