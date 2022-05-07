@@ -1,6 +1,6 @@
 # PROG9812, Assignment 3 Option B, Bitcoin Transaction Viewer
 ### Tejas Dusane, D21124891, TU059-ASD.
-A bitcoin transaction viewer written in node.js.
+A bitcoin transaction viewer written in node.js using [bitcore-p2p](https://github.com/bitpay/bitcore-p2p) library.
 ## Prerequisites
 Prerequisites along with their versions used in this project.
 - [Node.js](https://nodejs.org/dist/v16.14.2/node-v16.14.2-x64.msi) (16.14.2).
